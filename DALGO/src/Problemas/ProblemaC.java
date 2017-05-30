@@ -4,6 +4,18 @@ import java.util.Scanner;
 
 public class ProblemaC {
 
+	public boolean verificar(int[] arreglo)
+	{
+		int contador = 0;
+		for (int i = 0; i < arreglo.length; i++) {
+			if(arreglo[i]==0)
+				contador++;
+			if(contador>3)
+				return false;
+		}
+		return true;
+	}
+	
 	public String[] letrasDistintas(String[] arreglo)
 	{
 		String[] resultado = new String[2];
@@ -73,7 +85,6 @@ public class ProblemaC {
 					igual = true;
 			}
 			rs[i] = temp;
-			System.out.println(rs[i]);
 		}
 		return rs;
 	}
@@ -135,10 +146,15 @@ public class ProblemaC {
 			{
 				signaturas = pc.signaturas(separado, letras);
 			}
-			String[] elementos = "1,2,3,4,5,6,7,8,9,0".split(",");
+			String[] elementos = "9,1,7,4,5,6,3,8,2,0".split(",");
 			int n = letras.length();                  
 			int r = elementos.length;
-			String total = pc.Perm2(elementos,"", n, r, signaturas, posLetrasNoCero,"");
+			boolean siDebo = pc.verificar(signaturas);
+			String total = "";
+			if(siDebo)
+			{
+				 total = pc.Perm2(elementos,"", n, r, signaturas, posLetrasNoCero,"");
+			}
 			String respuesta = ""; 
 			for (int i = 0; i < 10; i++) {
 				int pos= total.indexOf(""+i);

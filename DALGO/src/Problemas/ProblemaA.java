@@ -37,8 +37,7 @@ public class ProblemaA {
 		
 		ProblemaA pa = new ProblemaA();
 		Scanner in = new Scanner(System.in);
-		boolean acabe = false;
-		while(!acabe)
+		while(true)
 		{
 			System.out.println("Escriba el tamaño del arreglo");
 			int n = in.nextInt();
@@ -51,17 +50,19 @@ public class ProblemaA {
 			try{
 				while(r!=0)
 				{
-					System.out.println("Escriba la rotación que desea hacer separada por comas");
-					String rot = in.next();
-					String[] result = rot.split(",");
-					int p = Integer.parseInt(result[0]);			
-					int q = Integer.parseInt(result[1]);
-					int k = Integer.parseInt(result[2]);
+					System.out.println("Escriba la rotación que desea hacer separada por espacios");
+					int p = in.nextInt();			
+					int q = in.nextInt();
+					int k = in.nextInt();
+					long time_start, time_end;
+					time_start = System.currentTimeMillis();
 					if(k<0)
 						pa.rotateIzq(a, p, q, -k);	    
 					else
 						pa.rotateDer(a, p, q, k);
 					r--;
+					time_end = System.currentTimeMillis();
+					System.out.println("the task has taken "+ ( (time_end - time_start) ) +" milliseconds");
 				}
 				System.out.println("Resultado:");
 				for (int i = 0; i < a.length; i++) {				
