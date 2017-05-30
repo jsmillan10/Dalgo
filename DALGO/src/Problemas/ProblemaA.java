@@ -39,18 +39,15 @@ public class ProblemaA {
 		Scanner in = new Scanner(System.in);
 		while(true)
 		{
-			System.out.println("Escriba el tamaño del arreglo");
 			int n = in.nextInt();
 			int[] a = new int[n];
 			for (int i = 0; i < n; i++) {
 				a[i]=i+1;
 			}
-			System.out.println("Escriba el número de rotaciones");
 			int r = in.nextInt();
 			try{
 				while(r!=0)
 				{
-					System.out.println("Escriba la rotación que desea hacer separada por espacios");
 					int p = in.nextInt();			
 					int q = in.nextInt();
 					int k = in.nextInt();
@@ -61,16 +58,12 @@ public class ProblemaA {
 					else
 						pa.rotateDer(a, p, q, k);
 					r--;
-					time_end = System.currentTimeMillis();
-					System.out.println("the task has taken "+ ( (time_end - time_start) ) +" milliseconds");
 				}
-				System.out.println("Resultado:");
 				for (int i = 0; i < a.length; i++) {				
 					System.out.print(a[i] + " ");
 				}
 			}
 			catch (Exception e) {
-				System.out.println("Resultado:");
 				for (int i = 0; i < a.length; i++) {				
 					System.out.print(a[i] + " ");
 				}
